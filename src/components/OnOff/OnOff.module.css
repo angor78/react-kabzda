@@ -1,0 +1,24 @@
+.onOfBlock{
+    margin-top: 20px;
+}
+.onOfBlock span{
+    border: 1px solid lightgray;
+    padding: 5px 15px;
+}
+.onOfBlock span:last-child{
+    margin-left: 10px;
+    border-radius: 50%;
+    border: none;
+}
+.onColorGreen span:nth-child(1) {
+    background-color: lightgreen;
+}
+.onColorGreen span:nth-child(3) {
+    background-color: lightgreen;
+}
+.offColorRed span:nth-child(2) {
+    background-color: lightcoral;
+}
+.offColorRed span:nth-child(3) {
+    background-color: lightcoral;
+}
