@@ -24,18 +24,41 @@ export function OnOff(props: OnOffType) {
   // }
   return (
     <div>
-      {props.isActive && <div className={s.onColorGreen}><OnOffBody/></div>}
-      {!props.isActive && <div className={s.offColorRed}><OnOffBody/></div>}
+      {props.isActive && <OnOffBody isActive={props.isActive}/>}
+      {!props.isActive && <OnOffBody isActive={props.isActive}/>}
     </div>
   )
 }
 
-const OnOffBody = () => {
+const OnOffBody = (props: OnOffType) => {
+  if (props.isActive) {
+    return (
+      <div className={s.onOfBlock}>
+        <div className={s.onColorGreen}>
+          <span> On </span>
+          <span>Off</span>
+          <span></span>
+        </div>
+      </div>
+    )
+  }
+  if (!props.isActive) {
+    return (
+      <div className={s.onOfBlock}>
+        <div className={s.offColorRed}>
+          <span> On </span>
+          <span>Off</span>
+          <span></span>
+        </div>
+      </div>
+    )
+  }
   return (
     <div className={s.onOfBlock}>
-      <span>On</span>
+      <span> On </span>
       <span>Off</span>
-      <span> </span>
+      <span></span>
     </div>
   )
+
 }
