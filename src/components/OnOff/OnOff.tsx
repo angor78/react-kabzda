@@ -1,64 +1,48 @@
-import s from "./OnOff.module.css"
-import React from "react";
+import React, {useState} from "react";
 
 type OnOffType = {
-  isActive: boolean
+  //on: boolean
 }
 
 export function OnOff(props: OnOffType) {
-  // if (props.isActive === true) {
-  //   return (
-  //     <div className={s.onColorGreen}>
-  //       <OnOffBody />
-  //     </div>
-  //
-  //   )
-  // }
-  // if (props.isActive === false) {
-  //   return (
-  //     <div className={s.offColorRed}>
-  //       <OnOffBody/>
-  //     </div>
-  //
-  //   )
-  // }
+  const [on, setOn] = useState(false)
+
+  const onStyle = {
+    width: "30px",
+    height: "20px",
+    border: "1px solid black",
+    display: "inline-block",
+    padding: "5px",
+    backgroundColor: on ? 'lightgreen' : "white"
+  }
+  const offStyle = {
+    width: "30px",
+    height: "20px",
+    border: "1px solid black",
+    marginLeft: "2px",
+    display: "inline-block",
+    padding: "5px",
+    backgroundColor: on ? 'white' : "red"
+  }
+  const indicatorStyle = {
+    width: '10px',
+    height: '10px',
+    borderRadius: '50%',
+    border: '1px solid black',
+    display: "inline-block",
+    marginLeft: "5px",
+    backgroundColor: on ? 'lightgreen' : "red"
+
+  }
+
   return (
     <div>
-      {props.isActive && <OnOffBody isActive={props.isActive}/>}
-      {!props.isActive && <OnOffBody isActive={props.isActive}/>}
+      <div style={onStyle} onClick={()=>{setOn(true)}}>On
+      </div>
+      <div style={offStyle} onClick={()=>{setOn(false)}}>Off
+      </div>
+      <div style={indicatorStyle}></div>
     </div>
   )
 }
 
-const OnOffBody = (props: OnOffType) => {
-  if (props.isActive) {
-    return (
-      <div className={s.onOfBlock}>
-        <div className={s.onColorGreen}>
-          <span> On </span>
-          <span>Off</span>
-          <span></span>
-        </div>
-      </div>
-    )
-  }
-  if (!props.isActive) {
-    return (
-      <div className={s.onOfBlock}>
-        <div className={s.offColorRed}>
-          <span> On </span>
-          <span>Off</span>
-          <span></span>
-        </div>
-      </div>
-    )
-  }
-  return (
-    <div className={s.onOfBlock}>
-      <span> On </span>
-      <span>Off</span>
-      <span></span>
-    </div>
-  )
-
-}
