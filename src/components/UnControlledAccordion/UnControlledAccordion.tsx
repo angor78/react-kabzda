@@ -7,14 +7,17 @@ type AccordionPropsType = {
 
 export function UnControlledAccordion(props: AccordionPropsType) {
 
-const [collapsed,setCollapsed]=useState(false)
-    return (
-      <div >
-        <AccordionTitle title={props.titleValue}/>
-        <button onClick={()=>{collapsed?setCollapsed(false):setCollapsed(true)}}>Toggle</button>
-        {!collapsed&&<AccordionBody/>}
-      </div>
-    )
+  const [collapsed, setCollapsed] = useState(true)
+  return (
+    <div>
+      <AccordionTitle title={props.titleValue}/>
+      <button onClick={() => {
+        setCollapsed(!collapsed)
+      }}>Toggle
+      </button>
+      {!collapsed && <AccordionBody/>}
+    </div>
+  )
 }
 
 // export function Accordion2(props: AccordionPropsType) {
