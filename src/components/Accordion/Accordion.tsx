@@ -6,7 +6,7 @@ type AccordionPropsType = {
 }
 
 export function Accordion(props: AccordionPropsType) {
-  console.log("Accordion rendering")
+  console.log("AccordionControl rendering")
 
     return (
       <div>
@@ -17,7 +17,7 @@ export function Accordion(props: AccordionPropsType) {
 }
 
 // export function Accordion2(props: AccordionPropsType) {
-//   console.log("Accordion rendering")
+//   console.log("AccordionControl rendering")
 //
 //
 //   if (props.collapsed === true) {

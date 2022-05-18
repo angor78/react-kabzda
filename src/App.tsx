@@ -1,43 +1,37 @@
 import React, {useState} from 'react';
 import './App.css';
-import Accordion from "./components/Accordion/Accordion";
-import Rating from "./components/Rating/Rating";
+//import Rating from "./components/Rating/Rating";
 import {OnOff} from "./components/OnOff/OnOff";
-import {UnControlledAccordion} from "./components/UnControlledAccordion/UnControlledAccordion";
-
-type PageTitleType = {
-  title: string
-}
+//import {UnControlledAccordion} from "./components/UnControlledAccordion/UnControlledAccordion";
+import {RatingControl, RatingValueType} from "./components/RatingControl/RatingControl";
+import AccordionControl from "./components/AccordionControl/AccordionControl";
+import {OnOffControl} from "./components/OnOffControl/OnOffControl";
 
 
 function App() {
+  let [ratingValue, setRatingValue] = useState<RatingValueType>(1)
+  let [accordeonCollapsed, setAccordeonCollapsed] = useState<boolean>(true)
+  const [on, setOn] = useState(true)
 
-  console.log("App rendering")
   return (
     <div className="App">
+      <hr/>
+      {/*<UnControlledAccordion titleValue={'--Menu-- '}/>*/}
+      {/*<UnControlledAccordion titleValue={'--Users--'} collapsed={false}/>*/}
 
-      <UnControlledAccordion titleValue={'Menu '}/>
-      <UnControlledAccordion titleValue={'Users'} collapsed={false}/>
-      <Rating />
-      <Rating />
-      <Rating />
-      <Rating />
-      <Rating />
-
-      <OnOff />
-      <OnOff />
-      <OnOff />
+      <AccordionControl titleValue={'--Users--'}
+                        collapsed={accordeonCollapsed}
+                        onClick={setAccordeonCollapsed}/>
+      <hr/>
+      {/*<Rating />*/}
+      <RatingControl value={ratingValue} onClick={setRatingValue}/>
+      <hr/>
+      {/*<OnOff/>*/}
+      <OnOffControl on={on} setOn={setOn}/>
+      <hr/>
     </div>
   );
 }
 
-const PageTitle: React.FC<PageTitleType> = (props) => {
-  console.log("PageTitle rendering")
-  return (
-    <h1>{props.title}</h1>
-  )
-}
-
 export default App;
-// <PageTitle title={'This is App component'}/>
-// <PageTitle title={'My friends'}/>
+
