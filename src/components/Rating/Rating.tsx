@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-type RatingType = 0 | 1 | 2 | 3 | 4 | 5
+export type RatingType = 0 | 1 | 2 | 3 | 4 | 5
 
 type StarType = {
   selected: boolean
@@ -9,7 +9,7 @@ type StarType = {
 }
 
 const Rating = () => {
-  const [value, setValue] = useState(0)
+  let [value, setValue] = useState<RatingType>(0)
   return (
     <div>
       <Star selected={value > 0} setValue={setValue} value={1}/>
