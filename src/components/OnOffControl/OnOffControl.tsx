@@ -1,6 +1,6 @@
 import React from "react";
 
-type OnOffControlType={
+export type OnOffControlType={
   on:boolean
   setOn:(on:boolean)=>void
 }
