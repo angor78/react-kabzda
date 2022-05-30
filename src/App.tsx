@@ -6,6 +6,7 @@ import './App.css';
 import {RatingControl, RatingValueType} from "./components/RatingControl/RatingControl";
 import AccordionControl from "./components/AccordionControl/AccordionControl";
 import {OnOffControl} from "./components/OnOffControl/OnOffControl";
+import {OnOff} from "./components/OnOff/OnOff";
 
 
 function App() {
@@ -21,12 +22,15 @@ function App() {
 
       <AccordionControl titleValue={'--Users--'}
                         collapsed={accordeonCollapsed}
-                        onClick={setAccordeonCollapsed}/>
+                        onChange={setAccordeonCollapsed}
+                        items={[]}/>
+
+
       <hr/>
       {/*<Rating />*/}
       <RatingControl value={ratingValue} onClick={setRatingValue}/>
       <hr/>
-      {/*<OnOff/>*/}
+      <OnOff/>
       <OnOffControl on={on} setOn={setOn}/>
       <hr/>
     </div>
