@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 
 
 export type ItemType = {
@@ -21,6 +21,7 @@ export const Select = (props: SelectPropsType) => {
     borderRadius: "3px",
   }
   const wrapItemsStyle = {
+    display:'block',
     width: "100px",
     backgroundColor: "rgba(0,0,0,0.1)",
     padding:"1px 0"
@@ -38,8 +39,8 @@ export const Select = (props: SelectPropsType) => {
 
   return (
     <div onClick={() => props.onSelect(!props.isOpen)}>
-      <span>Name:</span>
       <div style={selectedItemStyle}>
+        <span>Name:</span>
         {nameToTitle()}
       </div>
       <div onBlur={() => props.onSelect(props.isOpen)} style={wrapItemsStyle}>
