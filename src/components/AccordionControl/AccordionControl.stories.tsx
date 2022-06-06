@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {AccordionControl} from "./AccordionControl";
+import AccordionControl from "./AccordionControl";
 import {action} from "@storybook/addon-actions";
 
 export default {

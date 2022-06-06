@@ -1,9 +1,9 @@
 import React, {useReducer} from "react";
 import {onOffReducer, TOGGLE_ON_OFF} from "./onOffReducer";
 
-export function OnOff() {
- // const [on, setOn] = useState(false)
-  const [state, dispatch] = useReducer(onOffReducer,{on:true})
+function OnOffForMemo() {
+  // const [on, setOn] = useState(false)
+  const [state, dispatch] = useReducer(onOffReducer, {on: true})
 
   const onStyle = {
     width: "30px",
@@ -35,11 +35,11 @@ export function OnOff() {
 
   return (
     <div>
-      <div style={onStyle} onClick={()=>{
+      <div style={onStyle} onClick={() => {
         dispatch({type: TOGGLE_ON_OFF})
       }}>On
       </div>
-      <div style={offStyle} onClick={()=>{
+      <div style={offStyle} onClick={() => {
         dispatch({type: TOGGLE_ON_OFF})
       }}>Off
       </div>
@@ -47,4 +47,4 @@ export function OnOff() {
     </div>
   )
 }
-
+export const OnOff=React.memo(OnOffForMemo)

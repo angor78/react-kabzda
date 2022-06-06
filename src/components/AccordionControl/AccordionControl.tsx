@@ -12,7 +12,7 @@ type AccordionPropsType = {
   items: ItemType[]
 }
 
-export function AccordionControl(props: AccordionPropsType) {
+export function AccordionControlForMemo(props: AccordionPropsType) {
 
   return (
     <div>
@@ -47,4 +47,5 @@ function AccordionTitle(props: AccordionTitlePropsType) {
   )
 }
 
+const AccordionControl = React.memo(AccordionControlForMemo)
 export default AccordionControl

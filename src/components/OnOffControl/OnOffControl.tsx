@@ -5,7 +5,7 @@ export type OnOffControlType={
   setOn:(on:boolean)=>void
 }
 
-export function OnOffControl(props:OnOffControlType) {
+function OnOffControlForMemo(props:OnOffControlType) {
 
   const onStyle = {
     width: "30px",
@@ -45,4 +45,6 @@ export function OnOffControl(props:OnOffControlType) {
     </div>
   )
 }
+const OnOffControl=React.memo(OnOffControlForMemo)
+export default OnOffControl
 

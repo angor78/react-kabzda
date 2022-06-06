@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {OnOffControl} from "./OnOffControl";
+import OnOffControl from "./OnOffControl";
 
 export default {
   title: 'OnOffControl',

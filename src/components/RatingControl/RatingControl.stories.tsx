@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {RatingControl, RatingValueType} from "./RatingControl";
+import RatingControl, {RatingValueType} from "./RatingControl";
 
 export default {
   title: 'RatingControl',

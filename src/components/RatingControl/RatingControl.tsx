@@ -11,7 +11,7 @@ type RatingControlPropsType = {
   onClick:(value:RatingValueType)=>void
 }
 
-export const RatingControl = (props: RatingControlPropsType) => {
+const RatingControlForMemo = (props: RatingControlPropsType) => {
   return (
     <div>
       <Star selected={props.value > 0} onClick={()=>props.onClick(1)} />
@@ -23,9 +23,11 @@ export const RatingControl = (props: RatingControlPropsType) => {
   )
 }
 
-const Star = (props: StarType) => {
+const StarForMemo = (props: StarType) => {
   return <span onClick={props.onClick}>
     {props.selected ? <b>star </b> : ' star '}</span>
-
-
 }
+const Star=React.memo(StarForMemo)
+
+const RatingControl=React.memo(RatingControlForMemo)
+export default RatingControl

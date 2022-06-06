@@ -13,18 +13,18 @@ type SelectPropsType = {
   isOpen: boolean
 }
 
-export const Select = (props: SelectPropsType) => {
+const SelectForMemo = (props: SelectPropsType) => {
 
   const selectedItemStyle = {
-    border:"1px solid grey",
+    border: "1px solid grey",
     width: "100px",
     borderRadius: "3px",
   }
   const wrapItemsStyle = {
-    display:'block',
+    display: 'block',
     width: "100px",
     backgroundColor: "rgba(0,0,0,0.1)",
-    padding:"1px 0"
+    padding: "1px 0"
   }
 
   function nameToTitle() {
@@ -35,8 +35,6 @@ export const Select = (props: SelectPropsType) => {
       return <div>Select name</div>
     }
   }
-
-
   return (
     <div onClick={() => props.onSelect(!props.isOpen)}>
       <div style={selectedItemStyle}>
@@ -44,7 +42,7 @@ export const Select = (props: SelectPropsType) => {
         {nameToTitle()}
       </div>
       <div onBlur={() => props.onSelect(props.isOpen)} style={wrapItemsStyle}>
-        {!props.isOpen && props.items.map((i, index) => <div  key={index} onClick={() => {
+        {!props.isOpen && props.items.map((i, index) => <div key={index} onClick={() => {
           props.selectName(i.value)
         }}>{i.title}</div>)}
       </div>
@@ -52,6 +50,9 @@ export const Select = (props: SelectPropsType) => {
   )
 }
 
+const Select=React.memo(SelectForMemo)
+
+export default Select
 
 
 
