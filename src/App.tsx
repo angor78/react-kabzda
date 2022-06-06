@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import './App.css';
 //import Rating from "./components/Rating/Rating";
 //import {OnOff} from "./components/OnOff/OnOff";
-//import {UnControlledAccordion} from "./components/UnControlledAccordion/UnControlledAccordion";
+import {UnControlledAccordion} from "./components/UnControlledAccordion/UnControlledAccordion";
 import {RatingControl, RatingValueType} from "./components/RatingControl/RatingControl";
 import AccordionControl from "./components/AccordionControl/AccordionControl";
 import {OnOffControl} from "./components/OnOffControl/OnOffControl";
@@ -18,12 +18,16 @@ function App() {
     <div className="App">
       <hr/>
       {/*<UnControlledAccordion titleValue={'--Menu-- '}/>*/}
-      {/*<UnControlledAccordion titleValue={'--Users--'} collapsed={false}/>*/}
+      <UnControlledAccordion titleValue={'--Users--'} collapsed={false}/>
 
       <AccordionControl titleValue={'--Users--'}
                         collapsed={accordeonCollapsed}
                         onChange={setAccordeonCollapsed}
-                        items={[]}/>
+                        items={[
+                          {title: 'Andrey', value: 1},
+                          {title: 'Bob', value: 2},
+                          {title: 'Ringo', value: 3},
+                        ]}/>
 
 
       <hr/>
