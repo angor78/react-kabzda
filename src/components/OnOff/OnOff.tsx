@@ -1,9 +1,9 @@
-import React, {useState} from "react";
-
-
+import React, {useReducer} from "react";
+import {onOffReducer, TOGGLE_ON_OFF} from "./onOffReducer";
 
 export function OnOff() {
-  const [on, setOn] = useState(false)
+ // const [on, setOn] = useState(false)
+  const [state, dispatch] = useReducer(onOffReducer,{on:true})
 
   const onStyle = {
     width: "30px",
@@ -11,7 +11,7 @@ export function OnOff() {
     border: "1px solid black",
     display: "inline-block",
     padding: "5px",
-    backgroundColor: on ? 'lightgreen' : "white"
+    backgroundColor: state.on ? 'lightgreen' : "white"
   }
   const offStyle = {
     width: "30px",
@@ -20,7 +20,7 @@ export function OnOff() {
     marginLeft: "2px",
     display: "inline-block",
     padding: "5px",
-    backgroundColor: on ? 'white' : "red"
+    backgroundColor: state.on ? 'white' : "red"
   }
   const indicatorStyle = {
     width: '10px',
@@ -29,15 +29,19 @@ export function OnOff() {
     border: '1px solid black',
     display: "inline-block",
     marginLeft: "5px",
-    backgroundColor: on ? 'lightgreen' : "red"
+    backgroundColor: state.on ? 'lightgreen' : "red"
 
   }
 
   return (
     <div>
-      <div style={onStyle} onClick={()=>{setOn(true)}}>On
+      <div style={onStyle} onClick={()=>{
+        dispatch({type: TOGGLE_ON_OFF})
+      }}>On
       </div>
-      <div style={offStyle} onClick={()=>{setOn(false)}}>Off
+      <div style={offStyle} onClick={()=>{
+        dispatch({type: TOGGLE_ON_OFF})
+      }}>Off
       </div>
       <div style={indicatorStyle}></div>
     </div>

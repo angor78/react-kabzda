@@ -9,13 +9,11 @@ import {OnOffControl} from "./components/OnOffControl/OnOffControl";
 import {OnOff} from "./components/OnOff/OnOff";
 import {Select} from "./components/Select/Select";
 
-
 function App() {
   let [ratingValue, setRatingValue] = useState<RatingValueType>(1)
   let [accordeonCollapsed, setAccordeonCollapsed] = useState<boolean>(true)
   let [isSelect, setIsSelect] = useState<boolean>(true)
   let [selectedName, setSelectedName] = useState<string>('Users')
-
   const [on, setOn] = useState(true)
 
   return (

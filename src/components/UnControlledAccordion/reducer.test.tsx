@@ -15,7 +15,7 @@ test('Reducer should be change collapsed true', () => {
   let changedState = reducer(state, {type: TOGGLE_COLLAPSED})
   expect(changedState.collapsed).toBe(true)
 })
-test('Reducer should be returned throw', () => {
+test('Reducer should be returned throw if action is fake', () => {
   let state: StateType = {
     collapsed: false
   }

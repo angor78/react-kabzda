@@ -1,7 +1,7 @@
 export const TOGGLE_COLLAPSED = 'TOGGLE-COLLAPSED'
 
 
-type ActionType = {
+export type ActionType = {
   type: string
 }
 
