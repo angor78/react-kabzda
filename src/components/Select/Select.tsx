@@ -1,11 +1,11 @@
-import React, {useState} from "react";
+import React from "react";
 
 
 export type ItemType = {
   title: string
   value: any
 }
-type SelectPropsType = {
+export type SelectPropsType =& {
   items: ItemType[]
   titleSelect: string
   onSelect: (isOpen: boolean) => void
@@ -38,8 +38,7 @@ const SelectForMemo = (props: SelectPropsType) => {
   return (
     <div onClick={() => props.onSelect(!props.isOpen)}>
       <div style={selectedItemStyle}>
-        <span>Name:</span>
-        {nameToTitle()}
+            {nameToTitle()}
       </div>
       <div onBlur={() => props.onSelect(props.isOpen)} style={wrapItemsStyle}>
         {!props.isOpen && props.items.map((i, index) => <div key={index} onClick={() => {
