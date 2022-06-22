@@ -33,7 +33,7 @@ export const SelectWithUseMemo = () => {
     {id: v1(), title: 'Almatu', country: 'Kazakhstan', population: 2000000}
   ]
   let [cities, setCities] = useState<Array<CityType>>(startState)
-  let[counter,setCounter]=useState(2)
+  let [counter, setCounter] = useState(2)
 
   const reducer = (state: Array<CityType>, action: any): Array<CityType> => {
     switch (action.type) {
@@ -56,12 +56,12 @@ export const SelectWithUseMemo = () => {
   const selectPopulation = (population: number) => {
     setCities(reducer(startState, {type: "CHOOSE-POPULATION", population: population}))
   }
-  let memoCities = useMemo(()=>{
+  let memoCities = useMemo(() => {
     return cities
-  },[cities])
-  let memoCounter = useMemo(()=>{
+  }, [cities])
+  let memoCounter = useMemo(() => {
     return counter
-  },[counter])
+  }, [counter])
 
   return (
     <div>
@@ -79,7 +79,7 @@ export const SelectWithUseMemo = () => {
         <option onClick={() => selectPopulation(500000)}>500000 and less...</option>
         <option onClick={() => selectPopulation(200000)}>200000 and less...</option>
       </Select>
-      <button onClick={()=>setCounter(counter+1)}>+</button>
+      <button onClick={() => setCounter(counter + 1)}>+</button>
 
     </div>
   )
