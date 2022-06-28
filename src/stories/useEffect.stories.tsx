@@ -11,11 +11,11 @@ export const SimpleExample = () => {
   const [counter, setCounter] = useState(0)
   const [fake, setFake] = useState(0)
   useEffect(() => {
-    console.log('render every time')
+    console.log('render every time without deps')
 
   })
   useEffect(() => {
-    console.log('render first time')
+    console.log('render first time if deps empty array')
 
   }, [])
   useEffect(() => {
