@@ -12,6 +12,7 @@ export const SimpleExample = () => {
   const [fake, setFake] = useState(0)
   useEffect(() => {
     console.log('render every time without deps')
+    document.title = counter.toString()
 
   })
   useEffect(() => {
