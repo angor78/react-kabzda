@@ -6,7 +6,7 @@ export default {
 }
 
 
-export const SimpleExample = () => {
+export const DigitalClock = () => {
   console.log('render SimpleExample')
   const [time, setTime] = useState(new Date())
   useEffect(() => {
